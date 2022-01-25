@@ -3,7 +3,7 @@ from operator import le
 import numpy as np
 import matplotlib.pyplot as plt
 
-def Task1(seed,N):
+def Task1(seed,N,M):
     np.random.seed(seed)
     ###Task1
 
@@ -13,18 +13,27 @@ def Task1(seed,N):
     x_sq_1=np.zeros(start_stop_length[2])
     x_sq_2=np.zeros(start_stop_length[2])
 
-
     for i in range(start_stop_length[2]):
-        x_sq_1[i]=(random_choice[i]-1)**2
-        x_sq_2[i]=(uni_rand[i]-1)**2
+        x_sq_1[i]=(random_choice[i]-(N/M))**2/(N/M)
+        x_sq_2[i]=(uni_rand[i]-(N/M))**2/(N/M)
 
-    print('Correlation between the two arrays of random numbers with the np.correlate function: {}'.format(np.correlate(random_choice,uni_rand)))
-    
-    plt.scatter(random_choice,x_sq_1)
-    plt.scatter(uni_rand,x_sq_2)
+    correl=np.round(np.corrcoef(random_choice,uni_rand),3)
+    correl_perc=np.diag(correl,1)*100
+    print('Correlation between the two arrays of random numbers with the np.corrcoef function: {} \n With a {}% Pearson product-moment correlation'.format(correl,correl_perc))
+    print('The Chi squared for the uniform distribution is {} and for the random choice its {}'.format(np.round(np.sqrt(np.sum(x_sq_2)),3),np.round(np.sqrt(np.sum(x_sq_1)),3)))
+
+    shifted_array=np.roll(uni_rand,10)
+    plt.scatter(uni_rand,shifted_array,marker='x')
+    plt.title('Scatter plot of Uniform random distribution $x_n$ against $x_n+10$ for {} points'.format(N))
+    plt.xlabel('Uniform distribution')
+    plt.ylabel('Uniform distribution + 10')
+    plt.hlines(0,0,1,'r',':')
+    plt.hlines(1,0,1,'r',':')
+    plt.vlines(0,0,1,'r',':')
+    plt.vlines(1,0,1,'r',':')
     plt.show()
 
-#Task1(1,2000)
+#Task1(100,1000,100)
 
 def Task2(seed,N,time_steps):
     np.random.seed(seed)
@@ -52,11 +61,11 @@ def Task2(seed,N,time_steps):
     plt.xlabel('Time Steps')
     plt.ylabel('Particles on the Left and Right Side of the Box')
     plt.hlines(N/2,0,time_steps,'r',linestyles=':',label='Half of All Particles')
-    plt.ylim((80,310))
+    #plt.ylim((80,310))
     plt.legend()
     plt.show()
 
-#Task2(1,300,5000)
+#Task2(100,300,5000)
 
 def Task4(seed,N,time_steps):
     np.random.seed(seed)
