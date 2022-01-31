@@ -1,26 +1,34 @@
 from cProfile import label
+from dataclasses import replace
 from operator import le
+from re import T
 import numpy as np
 import matplotlib.pyplot as plt
+
 
 def Task1(seed,N,M):
     np.random.seed(seed)
     ###Task1
 
+    E=N/M
     start_stop_length=[0,1,N]
-    uni_rand=np.random.uniform(start_stop_length[0],start_stop_length[1],start_stop_length[2])
-    random_choice=np.random.choice(uni_rand,start_stop_length[2])
-    x_sq_1=np.zeros(start_stop_length[2])
-    x_sq_2=np.zeros(start_stop_length[2])
 
-    for i in range(start_stop_length[2]):
-        x_sq_1[i]=(random_choice[i]-(N/M))**2/(N/M)
-        x_sq_2[i]=(uni_rand[i]-(N/M))**2/(N/M)
+    uni_rand=np.random.uniform(start_stop_length[0],start_stop_length[1],start_stop_length[2])
+    random_choice=np.random.choice(uni_rand,start_stop_length[2],replace=True) # if replacement is not allowed, 'False', then the chi squared of both random sequences becomes equal.
+
+    hist1=np.histogram(uni_rand,M)
+    hist2=np.histogram(random_choice,M)
+    x1,x2=0,0
+
+    for i in hist1[0]:
+        x1+=(i-E)**2/E
+    for i in hist2[0]:
+        x2+=(i-E)**2/E
 
     correl=np.round(np.corrcoef(random_choice,uni_rand),3)
     correl_perc=np.diag(correl,1)*100
     print('Correlation between the two arrays of random numbers with the np.corrcoef function: {} \n With a {}% Pearson product-moment correlation'.format(correl,correl_perc))
-    print('The Chi squared for the uniform distribution is {} and for the random choice its {}'.format(np.round(np.sqrt(np.sum(x_sq_2)),3),np.round(np.sqrt(np.sum(x_sq_1)),3)))
+    print('The Chi squared for the uniform distribution is {} and for the random choice its {}'.format(np.round(x1,3),np.round(x2,3)))
 
     shifted_array=np.roll(uni_rand,10)
     plt.scatter(uni_rand,shifted_array,marker='x')
@@ -33,7 +41,7 @@ def Task1(seed,N,M):
     plt.vlines(1,0,1,'r',':')
     plt.show()
 
-#Task1(100,1000,100)
+#Task1(7,10000,100)
 
 def Task2(seed,N,time_steps):
     np.random.seed(seed)
@@ -58,10 +66,11 @@ def Task2(seed,N,time_steps):
 
     plt.plot(plot_time,left_sum,label='Left Side of Box')
     plt.plot(plot_time,right_sum,label='Right Side of Box')
+    plt.title('')
     plt.xlabel('Time Steps')
     plt.ylabel('Particles on the Left and Right Side of the Box')
     plt.hlines(N/2,0,time_steps,'r',linestyles=':',label='Half of All Particles')
-    #plt.ylim((80,310))
+    plt.ylim((80,310))
     plt.legend()
     plt.show()
 
