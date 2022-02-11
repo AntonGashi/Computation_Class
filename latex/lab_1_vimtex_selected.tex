@@ -1,0 +1,14 @@
+\documentclass[12pt, A4]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{hyperref}
+\usepackage{datetime}
+
+\title{Lab 1 Report}
+\author{Anton Gashi: 201914462}
+\date{\today}
+
+\begin{document}
+\textbf{My Result:} \\ \\ The two different pseudo-random generators I used were \href{https://numpy.org/doc/stable/reference/random/generated/numpy.random.uniform.html}{numpy.random.uniform} and \href{https://numpy.org/doc/stable/reference/random/generated/numpy.random.choice.html}{numpy.random.choice}. \\ The Chi squared for the uniform distribution is $\chi_{uniform}$ = 89.42 ($\le$ 100) and $\chi_{choice}$ = 158.36 for the random choice distribution, the reason for the larger Chi squared value for the second generator is due to the fact that the choice is made from the first generator \textbf{with} replacement. If 'replace=False' then the Chi squared becomes the exact same as the first. I also used the \href{"https://numpy.org/doc/stable/reference/generated/numpy.corrcoef.html"}{np.corrcoef} function which returns a Pearson product-moment correlation, this gives an array with either diagonal reprsenting the correlation between each array
+\end{document}
