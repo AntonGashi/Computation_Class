@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1644591750 "lab_1.tex" "lab_1.pdf" "lab_1" 1644591752
+["pdflatex"] 1645187575 "lab_1.tex" "lab_1.pdf" "lab_1" 1645187577
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1640600964 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1640600964 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1640600964 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -92,9 +92,9 @@
   "Task_4_Line_300.png" 1644591169 92017 794c18fdb87fa331ca9b58b700d5f4b7 ""
   "Task_4_Line_7.png" 1644591209 89413 1e5a0f4c6ede2075e370c86790851a55 ""
   "Task_4_Line_70000.png" 1644590940 64104 f41e10b76e94b645215d33ef52924272 ""
-  "lab_1.aux" 1644591752 1674 63c93acd10c3647e8521dde987794bfe "pdflatex"
-  "lab_1.out" 1644591751 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "lab_1.tex" 1644591750 6035 bc795bf3f1650a302d5e15a9d2301257 ""
+  "lab_1.aux" 1645187577 1674 63c93acd10c3647e8521dde987794bfe "pdflatex"
+  "lab_1.out" 1645187576 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "lab_1.tex" 1645187574 6035 bc795bf3f1650a302d5e15a9d2301257 ""
   (generated)
   "lab_1.aux"
   "lab_1.log"
