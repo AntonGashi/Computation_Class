@@ -3,6 +3,7 @@ from numba import jit
 import matplotlib.pyplot as plt
 
 
+###only for the 1-D integral###
 def montecarlo_single(func,array_of_limits,points):
 
     X=np.random.uniform(array_of_limits[0],array_of_limits[1],points)
@@ -19,7 +20,6 @@ def montecarlo_single(func,array_of_limits,points):
     return X,answer,np.sqrt(abs(variance))
 
 
-###only for the 1-D integral###
 def scatter_points(func,limits,points,montecarlo_randomvals):
     
     x_vals=np.linspace(limits[0],limits[1],points)
@@ -37,33 +37,43 @@ def scatter_points(func,limits,points,montecarlo_randomvals):
 
     return upper,lower
 ###---###
-
+###---###
 
 def montecarlo_multi(func,array_of_limits,points):
+    global area
     dimension=int(len(array_of_limits)/2)
     X=np.zeros((dimension,points))
     const=0
     sum=np.zeros(int(points))
+    area=1
 
     for i in range(dimension):
         X[i,:]=np.random.uniform(array_of_limits[2*i],array_of_limits[2*i+1],points)
         const+=(array_of_limits[2*i]-array_of_limits[(2*i)+1])
+        area=area*abs(array_of_limits[2*i]-array_of_limits[(2*i)+1])
 
     for j in range(points):
         sum[j]=func(X,j)
 
     const=const/(points*dimension)
+
     answer=(const*np.sum(sum))
-    answer_squared=(const*np.sum(sum**2))
-    variance=(1/points)*(answer_squared-(answer**2))
+
+    var1=np.sum(sum**2)
+    var2=np.sum(sum)**2
+
+    variance=(1/points)*(var1-var2)
+    
+    average=(1/points)*np.sum(sum)
+
     rms=np.sqrt(abs((1/points)*np.sum(sum**2)))
 
-    return sum,answer,np.sqrt(abs(variance)),rms
+    return sum,answer,variance,rms,average,np.sqrt(abs(variance))
 
 ###
-#Functions
+#Functions-start
 ###
-
+### axis are denoted with indices, i.e. x[0,i]=x, x[1,i]=y, ... and so on.
 def func_a(x,i):
     return 2
 
@@ -84,16 +94,20 @@ def func_e(x,i):
     return (x[0,i]*x[1,i]*x[2,i])+(x[1,i]*x[2,i])
 
 
-def task_3(x,i):
-    radius=2.0
-    r=np.sqrt(x[0,i]**2+x[1,i]**2+x[2,i]**2)
-    if r<=radius:
-        return 1
-    else:
+def circle(x,i):
+    radius=1.5
+    r=np.sqrt(x[0,i]**2+x[1,i]**2+x[2,i]**2+x[3,i]**2+x[4,i]**2)
+    if r>=radius:
         return 0
+    else:
+        return 1
 
+def circle_answer(params):
+    sum,answer,variance,rms,average,standard_deviation=montecarlo_multi(circle,params[0],params[1])
+    answer=(np.count_nonzero(sum)/params[1])*area
+    return answer,variance,rms,average,standard_deviation
 ###
-#Functions
+#Functions-end
 ###
 
 '''
@@ -114,7 +128,10 @@ plt.tight_layout()
 plt.show()
 '''
 
-params=[[2,-2,2,-2,2,-2],int(1e6)]
-sum,answer,variance,rms=montecarlo_multi(task_3,params[0],params[1])
+params=[[2,-2,2,-2,2,-2,2,-2,2,-2],int(1e6)]
 
-print('Integral output = {} units.\nVariance = {}.\nRoot-Mean-Square = {}.'.format(format(answer,".2"),format(variance,".2e"),format(rms,".2")))
+#sum,answer,variance,rms,average,standard_deviation=montecarlo_multi(func_e,params[0],params[1])
+###circle answers only
+answer,variance,rms,average,standard_deviation=circle_answer(params)
+###circle answers only
+print('Integral output = [{}] units.\nSample Size = [{}].\n----\nVariance = [{}].\nRoot-Mean-Square = [{}].\nAverage = [{}].\nStandard Deviation = [{}].'.format(format(answer,".3"),format(params[1]),format(variance,".3"),format(rms,".3"),format(average,".3"),format(standard_deviation,".3")))
