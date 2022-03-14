@@ -1,7 +1,9 @@
 import numpy as np
 from numba import jit
 import matplotlib.pyplot as plt
+import time 
 
+start=time.perf_counter()
 
 ###only for the 1-D integral###
 def montecarlo_single(func,array_of_limits,points):
@@ -16,7 +18,6 @@ def montecarlo_single(func,array_of_limits,points):
     answer=constant*np.sum(sum)
     answer_squared=constant*np.sum(sum**2)
     variance=(1/points)*(answer_squared-(answer**2))
-    ### do root-mean-squared at some point
     return X,answer,np.sqrt(abs(variance))
 
 
@@ -59,41 +60,51 @@ def montecarlo_multi(func,array_of_limits,points):
 
     answer=(const*np.sum(sum))
 
-    var1=np.sum(sum**2)
-    var2=np.sum(sum)**2
+    var1=(1/points)*np.average(np.sum(sum**2))
+    var2=(1/points)*np.average(np.sum(sum))**2
 
     variance=(1/points)*(var1-var2)
     
     average=(1/points)*np.sum(sum)
 
     rms=np.sqrt(abs((1/points)*np.sum(sum**2)))
+    
+    standard_deviation=np.sqrt(abs(variance))
 
-    return sum,answer,variance,rms,average,np.sqrt(abs(variance))
+    sd_of_dist=standard_deviation/np.sqrt(points)
+
+    return sum,answer,abs(variance),rms,average,standard_deviation,sd_of_dist
 
 ###
 #Functions-start
 ###
 ### axis are denoted with indices, i.e. x[0,i]=x, x[1,i]=y, ... and so on.
+
+@jit(nopython=True)
 def func_a(x,i):
     return 2
 
 
+@jit(nopython=True)
 def func_b(x,i):
     return -x[0,i]
 
 
+@jit(nopython=True)
 def func_c(x,i):
     return x[0,i]**2
 
 
+@jit(nopython=True)
 def func_d(x,i):
     return (x[0,i]*x[1,i])+x[0,i]
 
-
+@jit(nopython=True)
 def func_e(x,i):
     return (x[0,i]*x[1,i]*x[2,i])+(x[1,i]*x[2,i])
 
 
+@jit(nopython=True)
 def circle(x,i):
     radius=1.5
     r=np.sqrt(x[0,i]**2+x[1,i]**2+x[2,i]**2+x[3,i]**2+x[4,i]**2)
@@ -103,13 +114,58 @@ def circle(x,i):
         return 1
 
 def circle_answer(params):
-    sum,answer,variance,rms,average,standard_deviation=montecarlo_multi(circle,params[0],params[1])
+    sum,answer,variance,rms,average,standard_deviation,sd_of_dist=montecarlo_multi(circle,params[0],params[1])
     answer=(np.count_nonzero(sum)/params[1])*area
-    return answer,variance,rms,average,standard_deviation
+    return sum,answer,variance,rms,average,standard_deviation,sd_of_dist
+
+@jit(nopython=True)
+def task4(x,i):
+    return 1/abs((x[0,i]*x[0,i])+x[0,i])
+
+@jit(nopython=True)
+def task5a(x):
+    return 2*np.exp(-x**2)
+
+def task5a_sample(x):
+    return np.exp(-abs(x))
+
+def task5b(x,i):
+    return 1.5*np.sin(x)
+
+def task5b_sample(x):
+    return (4/np.pi**2)*x*(np.pi-x)
+
+def metropolis(func,N):
+    delta=0.1
+    x_i=5
+    x_logged=np.zeros(N)
+    for i in range(N):
+        rand_delta=np.random.uniform(-delta,delta,1)
+        x_trial=x_i+rand_delta
+        w=func(x_trial)/func(x_i)
+        x_logged[i]=x_i
+        if w>=1:
+            x_i=x_trial
+            x_logged[i]=x_trial
+        elif w>=np.random.ranf(1):
+            x_i=x_trial
+            x_logged[i]=x_trial
+    return x_logged
+
+start=time.perf_counter()
+x_logged=metropolis(task5a,int(1e5))
+stop=time.perf_counter()
+print(x_logged,format((stop-start),".2"))
+plt.hist(x_logged)
+plt.show()
+
+
 ###
 #Functions-end
 ###
-
+###
+#for 1-D integrals
+###
 '''
 x_rand_vals,answer,variance=montecarlo_single(func_c,params[0],params[1])
 print(np.round(answer,2),np.round(variance,5))
@@ -127,11 +183,39 @@ plt.tight_layout()
 #plt.ylim(-2,6)
 plt.show()
 '''
+###
+#1-D integrals end 
+###
+###
+#Task 2-4
+###
+'''
+params=[[1,0,1,0,1,0],int(1e4)]
 
-params=[[2,-2,2,-2,2,-2,2,-2,2,-2],int(1e6)]
+sum,answer,variance,rms,average,standard_deviation,sd_of_dist=montecarlo_multi(task4,params[0],params[1])
+###circle answers only
+#sum,answer,variance,rms,average,standard_deviation,sd_of_dist=circle_answer(params)
+###circle answers only
+stop=time.perf_counter()
+time_taken=stop-start
 
-#sum,answer,variance,rms,average,standard_deviation=montecarlo_multi(func_e,params[0],params[1])
-###circle answers only
-answer,variance,rms,average,standard_deviation=circle_answer(params)
-###circle answers only
-print('Integral output = [{}] units.\nSample Size = [{}].\n----\nVariance = [{}].\nRoot-Mean-Square = [{}].\nAverage = [{}].\nStandard Deviation = [{}].'.format(format(answer,".3"),format(params[1]),format(variance,".3"),format(rms,".3"),format(average,".3"),format(standard_deviation,".3")))
+confidence=1.645*(standard_deviation/params[1])
+print('Integral output (to a 90% confidence) = [{}] +- {} units.\nSample Size = [{}].\nTime Taken = [{}]s.\n----\nVariance = [{}].\nRoot-Mean-Square = [{}].\nAverage = [{}].\nStandard Deviation (Of Distrobution/X-axis) = [{}]/[{}].'.format(format(answer,".3"),format(confidence,".3"),format(params[1]),format(time_taken,".3"),format(variance,".3"),format(rms,".3"),format(average,".3"),format(sd_of_dist,".3"),format(standard_deviation,".3")))
+
+plt.hist(sum,200)
+plt.vlines(standard_deviation,0,params[1]/10,color='r',linestyles='dashed',label='Standard Deviation')
+plt.legend()
+plt.show()
+'''
+###
+#Task2-4 end 
+###
+###
+#Task 5-6
+###
+
+
+
+###
+#Task 5-6 end 
+###
