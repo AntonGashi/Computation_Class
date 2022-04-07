@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2021/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: PH456_Essay.aux
+The style file: unsrt.bst
+Database file #1: references.bib
+Warning--empty journal in turner2009simple
+You've used 7 entries,
+            1791 wiz_defined-function locations,
+            489 strings with 4503 characters,
+and the built_in function-call counts, 1338 in all, are:
+= -- 118
+> -- 45
+< -- 1
++ -- 19
+- -- 12
+* -- 80
+:= -- 219
+add.period$ -- 21
+call.type$ -- 7
+change.case$ -- 4
+chr.to.int$ -- 0
+cite$ -- 8
+duplicate$ -- 65
+empty$ -- 144
+format.name$ -- 12
+if$ -- 293
+int.to.chr$ -- 0
+int.to.str$ -- 7
+missing$ -- 10
+newline$ -- 38
+num.names$ -- 7
+pop$ -- 28
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 19
+stack$ -- 0
+substring$ -- 75
+swap$ -- 7
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 13
+width$ -- 8
+write$ -- 75
+(There was 1 warning)
