@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.2.4)  7 APR 2022 13:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.2.4)  7 APR 2022 13:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -343,138 +343,141 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 40.
+(Font)              <10.95> on input line 49.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 40.
+(Font)              <8> on input line 49.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 40.
-<bz.jpg, id=42, 493.3632pt x 370.0224pt>
-File: bz.jpg Graphic file (type jpg)
-<use bz.jpg>
-Package pdftex.def Info: bz.jpg  used on input line 67.
-(pdftex.def)             Requested size: 215.0023pt x 161.25203pt.
+(Font)              <6> on input line 49.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.72 
       [1]
-Overfull \hbox (4.83125pt too wide) in paragraph at lines 113--119
-[]\OT1/cmr/m/n/12 For this Es-say's vi-su-al-i-sa-tion of the BZ re-ac-tion a dis-cre-tised grid (usu-ally 300x300)
+<bz.jpg, id=55, 493.3632pt x 370.0224pt>
+File: bz.jpg Graphic file (type jpg)
+<use bz.jpg>
+Package pdftex.def Info: bz.jpg  used on input line 76.
+(pdftex.def)             Requested size: 215.0023pt x 161.25203pt.
+
+Overfull \hbox (16.55655pt too wide) in paragraph at lines 89--91
+\OT1/cmr/m/n/10.95 The method be-ing used to sim-u-late the BZ re-ac-tion was pre-sented by Ball(1994)[[]],
  []
 
 [2pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.119 
-       <./bz.jpg>]
-<first_pic.png, id=78, 462.528pt x 346.896pt>
+l.112 \end{equation}
+                     <./bz.jpg>]
+<first_pic.png, id=77, 462.528pt x 346.896pt>
 File: first_pic.png Graphic file (type png)
 <use first_pic.png>
-Package pdftex.def Info: first_pic.png  used on input line 135.
+Package pdftex.def Info: first_pic.png  used on input line 144.
 (pdftex.def)             Requested size: 258.00539pt x 193.51408pt.
-<organator.png, id=80, 462.528pt x 346.896pt>
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 146.
+<organator.png, id=79, 462.528pt x 346.896pt>
 File: organator.png Graphic file (type png)
 <use organator.png>
-Package pdftex.def Info: organator.png  used on input line 143.
+Package pdftex.def Info: organator.png  used on input line 152.
 (pdftex.def)             Requested size: 258.00539pt x 193.51408pt.
-<frame_0.png, id=81, 642.4pt x 481.8pt>
+<frame_0.png, id=80, 642.4pt x 481.8pt>
 File: frame_0.png Graphic file (type png)
 <use frame_0.png>
-Package pdftex.def Info: frame_0.png  used on input line 151.
+Package pdftex.def Info: frame_0.png  used on input line 160.
 (pdftex.def)             Requested size: 258.00539pt x 193.51056pt.
-<frame_300.png, id=82, 642.4pt x 481.8pt>
+<frame_300.png, id=81, 642.4pt x 481.8pt>
 File: frame_300.png Graphic file (type png)
 <use frame_300.png>
-Package pdftex.def Info: frame_300.png  used on input line 159.
+Package pdftex.def Info: frame_300.png  used on input line 168.
 (pdftex.def)             Requested size: 258.00539pt x 193.51056pt.
-<frame_300_12.png, id=83, 642.4pt x 481.8pt>
+<frame_300_12.png, id=82, 642.4pt x 481.8pt>
 File: frame_300_12.png Graphic file (type png)
 <use frame_300_12.png>
-Package pdftex.def Info: frame_300_12.png  used on input line 167.
+Package pdftex.def Info: frame_300_12.png  used on input line 176.
 (pdftex.def)             Requested size: 258.00539pt x 193.51056pt.
-<frame_300_311.png, id=84, 642.4pt x 481.8pt>
+<frame_300_311.png, id=83, 642.4pt x 481.8pt>
 File: frame_300_311.png Graphic file (type png)
 <use frame_300_311.png>
-Package pdftex.def Info: frame_300_311.png  used on input line 175.
+Package pdftex.def Info: frame_300_311.png  used on input line 184.
 (pdftex.def)             Requested size: 258.00539pt x 193.51056pt.
-<3d.png, id=85, 1376.7435pt x 732.0951pt>
+<3d.png, id=84, 1376.7435pt x 732.0951pt>
 File: 3d.png Graphic file (type png)
 <use 3d.png>
-Package pdftex.def Info: 3d.png  used on input line 184.
+Package pdftex.def Info: 3d.png  used on input line 193.
 (pdftex.def)             Requested size: 516.00423pt x 274.38976pt.
 
-Overfull \hbox (85.9996pt too wide) in paragraph at lines 184--185
+Overfull \hbox (85.9996pt too wide) in paragraph at lines 193--194
  [] 
  []
 
-<3d2.png, id=86, 1376.7435pt x 732.0951pt>
+<3d2.png, id=85, 1376.7435pt x 732.0951pt>
 File: 3d2.png Graphic file (type png)
 <use 3d2.png>
-Package pdftex.def Info: 3d2.png  used on input line 192.
+Package pdftex.def Info: 3d2.png  used on input line 201.
 (pdftex.def)             Requested size: 516.00423pt x 274.38976pt.
 
-Overfull \hbox (85.9996pt too wide) in paragraph at lines 192--193
+Overfull \hbox (85.9996pt too wide) in paragraph at lines 201--202
  [] 
  []
 
-<pred_pray.jpg, id=87, 338.96548pt x 176.51788pt>
+<pred_pray.jpg, id=86, 338.96548pt x 176.51788pt>
 File: pred_pray.jpg Graphic file (type jpg)
 <use pred_pray.jpg>
-Package pdftex.def Info: pred_pray.jpg  used on input line 200.
+Package pdftex.def Info: pred_pray.jpg  used on input line 209.
 (pdftex.def)             Requested size: 408.50307pt x 212.74693pt.
 [3] (./PH456_Essay.bbl) [4] [5pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.252 \end{document}
+l.261 \end{document}
                     pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.252 \end{document}
+l.261 \end{document}
                      <./first_pic.png> <./organator.png>] [6pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.252 \end{document}
+l.261 \end{document}
                     pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.252 \end{document}
+l.261 \end{document}
                      <./frame_0.png (PNG copy)> <./frame_300.png (PNG copy)>] [7pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.252 \end{document}
+l.261 \end{document}
                     pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.252 \end{document}
+l.261 \end{document}
                      <./frame_300_12.png (PNG copy)> <./frame_300_311.png (PNG copy)>] [8pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.252 \end{document}
+l.261 \end{document}
                      <./3d.png>] [9pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.252 \end{document}
+l.261 \end{document}
                      <./3d2.png>] [10pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.252 \end{document}
+l.261 \end{document}
                      <./pred_pray.jpg>] (./PH456_Essay.aux)
 Package rerunfilecheck Info: File `PH456_Essay.out' has not changed.
 (rerunfilecheck)             Checksum: 0FD415CFE1C2EB04B9984254437B4C35;502.
  ) 
 Here is how much of TeX's memory you used:
- 10217 strings out of 478353
- 160112 string characters out of 5854636
- 485945 words of memory out of 5000000
- 28157 multiletter control sequences out of 15000+600000
- 408638 words of font info for 44 fonts, out of 8000000 for 9000
+ 10223 strings out of 478353
+ 160210 string characters out of 5854636
+ 486974 words of memory out of 5000000
+ 28162 multiletter control sequences out of 15000+600000
+ 409861 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,6n,76p,1018b,340s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on PH456_Essay.pdf (11 pages, 2731865 bytes).
+ 70i,6n,76p,1018b,342s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on PH456_Essay.pdf (11 pages, 2766604 bytes).
 PDF statistics:
- 211 PDF objects out of 1000 (max. 8388607)
- 161 compressed objects within 2 object streams
+ 221 PDF objects out of 1000 (max. 8388607)
+ 167 compressed objects within 2 object streams
  46 named destinations out of 1000 (max. 500000)
  91 words of extra memory for PDF output out of 10000 (max. 10000000)
 
